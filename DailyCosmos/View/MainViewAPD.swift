@@ -8,26 +8,40 @@
 import SwiftUI
 
 struct MainViewAPD: View {
+    
+    @StateObject var apodVM = APODVM()
+    
     var body: some View {
         NavigationStack {
                 ZStack {
                     backgroundGradient.ignoresSafeArea(.all)
                     VStack {
-                        Text("The Cone Nebula from Hubble")
+                        Text(apodVM.apod?.title ?? "Title")
                             .fontDesign(.monospaced)
                             .foregroundStyle(.white)
+                            .padding(.top, 15)
+                            .font(.system(size: 16))
                         ImageViewAPD()
-                            .padding()
-                            Text("2024-02-04")
+                            .padding(.bottom, -20)
+                        Text(apodVM.apod?.date ?? "01-01-0001")
                                 .foregroundStyle(.white)
                                 .fontDesign(.monospaced)
-                                .padding(.bottom, 20)
-                        Text("Stars are forming in the gigantic dust pillar called the Cone Nebula. Cones, pillars, and majestic flowing shapes abound in stellar nurseries where natal clouds of gas and dust are buffeted by energetic winds from newborn stars. The Cone Nebula, a well-known example, lies within the bright galactic star-forming region NGC 2264. The Cone was captured in unprecedented detail in this close-up composite of several observations from the Earth-orbiting Hubble Space Telescope.")
-                            .padding(25)
-                            .lineSpacing(6)
-                            .foregroundStyle(.white)
-                            .font(.system(size: 18, weight: .regular, design: .default))
-                            .shadow(color: Color.purple.opacity(0.8), radius: 3, x: 160, y: 110)
+                                .font(.system(size: 16))
+                        ScrollView {
+                            Text(apodVM.apod?.explanation ?? "explanation")
+                                .padding(25)
+                                .lineSpacing(6)
+                                .foregroundStyle(.white)
+                                .font(.system(size: 17, weight: .regular, design: .default))
+                                .shadow(color: Color.purple.opacity(0.8), radius: 3, x: 160, y: 110)
+                            Text("© Copyright" + "\(apodVM.apod?.copyright ?? "XX")")
+                                .foregroundStyle(.white)
+                                .padding(.bottom, 60)
+                        }
+                        .padding(.top, 5)
+                    }
+                    .onAppear{
+                        apodVM.fetchApodData()
                     }
                 }
         }

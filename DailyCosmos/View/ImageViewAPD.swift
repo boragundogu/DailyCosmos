@@ -8,13 +8,24 @@
 import SwiftUI
 
 struct ImageViewAPD: View {
+    
+    @StateObject var apodVM = APODVM()
+    
+    
     var body: some View {
-        Image("apod")
-            .resizable()
-            .scaledToFit()
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .shadow(color: .gray, radius: 30, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-        //.clipShape(UnevenRoundedRectangle(cornerRadii: .init(topLeading: 60, topTrailing: 60)))
+        VStack {
+                AsyncImage(url: URL(string: apodVM.apod?.url ?? "apod")) { image in
+                    image.image?.resizable()
+                        .scaledToFit()
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .shadow(color: .gray, radius: 30)
+                }
+                .frame(width: 350, height: 350, alignment: .center)
+        }
+        .padding()
+        .onAppear{
+            apodVM.fetchApodData()
+        }
     }
 }
 

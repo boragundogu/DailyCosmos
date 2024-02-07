@@ -15,6 +15,9 @@
 		09DF2AD32B7017620051E21F /* BlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF2AD22B7017620051E21F /* BlankView.swift */; };
 		09DF2AD52B701C5C0051E21F /* ImageViewAPD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF2AD42B701C5C0051E21F /* ImageViewAPD.swift */; };
 		09DF2AD72B702F000051E21F /* MainViewAPD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF2AD62B702F000051E21F /* MainViewAPD.swift */; };
+		09DF2AE22B7174620051E21F /* APODModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF2AE12B7174620051E21F /* APODModel.swift */; };
+		09DF2AE52B7174D40051E21F /* APODVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF2AE42B7174D40051E21F /* APODVM.swift */; };
+		09DF2AE72B7186A70051E21F /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF2AE62B7186A70051E21F /* CustomTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		09DF2AD22B7017620051E21F /* BlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankView.swift; sourceTree = "<group>"; };
 		09DF2AD42B701C5C0051E21F /* ImageViewAPD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewAPD.swift; sourceTree = "<group>"; };
 		09DF2AD62B702F000051E21F /* MainViewAPD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewAPD.swift; sourceTree = "<group>"; };
+		09DF2AE12B7174620051E21F /* APODModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODModel.swift; sourceTree = "<group>"; };
+		09DF2AE42B7174D40051E21F /* APODVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODVM.swift; sourceTree = "<group>"; };
+		09DF2AE62B7186A70051E21F /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +68,11 @@
 			children = (
 				09DF2AD12B7017400051E21F /* Info.plist */,
 				09DF2ACD2B7016F80051E21F /* View */,
-				09DF2ACE2B7016FD0051E21F /* Utility */,
+				09DF2ADA2B713D6E0051E21F /* Model */,
+				09DF2AE32B7174A80051E21F /* ViewModel */,
 				09DF2AC32B70154C0051E21F /* Assets.xcassets */,
 				09DF2ABF2B70154B0051E21F /* DailyCosmosApp.swift */,
+				09DF2ACE2B7016FD0051E21F /* Utility */,
 				09DF2AC52B70154C0051E21F /* Preview Content */,
 			);
 			path = DailyCosmos;
@@ -85,6 +93,7 @@
 				09DF2AD22B7017620051E21F /* BlankView.swift */,
 				09DF2AD42B701C5C0051E21F /* ImageViewAPD.swift */,
 				09DF2AD62B702F000051E21F /* MainViewAPD.swift */,
+				09DF2AE62B7186A70051E21F /* CustomTabBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -95,6 +104,22 @@
 				09DF2ACF2B7017300051E21F /* Constant.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		09DF2ADA2B713D6E0051E21F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				09DF2AE12B7174620051E21F /* APODModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		09DF2AE32B7174A80051E21F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				09DF2AE42B7174D40051E21F /* APODVM.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,7 +196,10 @@
 				09DF2AD32B7017620051E21F /* BlankView.swift in Sources */,
 				09DF2AD52B701C5C0051E21F /* ImageViewAPD.swift in Sources */,
 				09DF2AC02B70154B0051E21F /* DailyCosmosApp.swift in Sources */,
+				09DF2AE52B7174D40051E21F /* APODVM.swift in Sources */,
 				09DF2AD02B7017300051E21F /* Constant.swift in Sources */,
+				09DF2AE72B7186A70051E21F /* CustomTabBar.swift in Sources */,
+				09DF2AE22B7174620051E21F /* APODModel.swift in Sources */,
 				09DF2AD72B702F000051E21F /* MainViewAPD.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,19 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        TabView {
-            MainViewAPD()
-                .tabItem {
-                    Label("APOD", systemImage: "list.dash")
-                }
-            ImageViewAPD()
-                .tabItem {
-                    Label("Mars", systemImage: "mic.fill")
-                        .foregroundStyle(.white)
-                }
-        }
+    
+    @State private var activeTab: Tab = .apod
+    
+    init() {
+      UITabBar.appearance().isHidden = true // custom TabBar görünümünü gizlemek için.
     }
+    var body: some View {
+    
+        ZStack {
+            Color("tabBar-color")
+            VStack {
+                TabView(selection: $activeTab) {
+                    MainViewAPD()
+                        .tag(Tab.apod)
+                }
+            }
+            
+            VStack {
+                Spacer()
+                CustomTabBar(selectedTab: $activeTab)
+            }
+        }
+        
+    }
+
 }
 
 #Preview {
