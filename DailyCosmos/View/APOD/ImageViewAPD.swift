@@ -14,7 +14,7 @@ struct ImageViewAPD: View {
     
     var body: some View {
         VStack {
-                AsyncImage(url: URL(string: apodVM.apod?.url ?? "apod")) { image in
+                AsyncImage(url: URL(string: apodVM.apod?.hdurl ?? "apod")) { image in
                     image.image?.resizable()
                         .scaledToFit()
                         .clipShape(RoundedRectangle(cornerRadius: 20))

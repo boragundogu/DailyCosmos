@@ -22,7 +22,7 @@ struct MainViewAPD: View {
                             .padding(.top, 15)
                             .font(.system(size: 16))
                         ImageViewAPD()
-                            .padding(.bottom, -20)
+                            .padding(.bottom, -10)
                         Text(apodVM.apod?.date ?? "01-01-0001")
                                 .foregroundStyle(.white)
                                 .fontDesign(.monospaced)
@@ -34,7 +34,7 @@ struct MainViewAPD: View {
                                 .foregroundStyle(.white)
                                 .font(.system(size: 17, weight: .regular, design: .default))
                                 .shadow(color: Color.purple.opacity(0.8), radius: 3, x: 160, y: 110)
-                            Text("© Copyright" + "\(apodVM.apod?.copyright ?? "XX")")
+                            Text("© Copyright" + " " + "\(apodVM.apod?.copyright ?? "XX")")
                                 .foregroundStyle(.white)
                                 .padding(.bottom, 60)
                         }
