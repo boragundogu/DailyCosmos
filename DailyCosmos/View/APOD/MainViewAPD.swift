@@ -34,9 +34,6 @@ struct MainViewAPD: View {
                                 .foregroundStyle(.white)
                                 .font(.system(size: 17, weight: .regular, design: .default))
                                 .shadow(color: Color.purple.opacity(0.8), radius: 3, x: 160, y: 110)
-                            Text("© Copyright" + " " + "\(apodVM.apod?.copyright ?? "XX")")
-                                .foregroundStyle(.white)
-                                .padding(.bottom, 60)
                         }
                         .padding(.top, 5)
                     }

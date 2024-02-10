@@ -13,3 +13,7 @@ import SwiftUI
 var backgroundGradient: LinearGradient {
     return LinearGradient(gradient: Gradient(colors: [Color.black, Color("bg-color"), Color("bg-color-secondary")]), startPoint: .bottomTrailing, endPoint: .topLeading)
 }
+
+var worldBackgroundGradient: LinearGradient {
+    return LinearGradient(gradient: Gradient(colors: [Color("world-bg-color"), Color.black, Color.black, Color("world-bg-color")]), startPoint: .topLeading, endPoint: .bottomTrailing)
+}

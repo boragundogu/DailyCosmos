@@ -22,6 +22,8 @@ struct ContentView: View {
                 TabView(selection: $activeTab) {
                     MainViewAPD()
                         .tag(Tab.apod)
+                    MainViewWRD()
+                        .tag(Tab.mars)
                 }
             }
             
