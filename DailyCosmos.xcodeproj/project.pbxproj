@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		093A9C652B7656D30048A831 /* WorldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093A9C642B7656D30048A831 /* WorldModel.swift */; };
+		093A9C672B76572D0048A831 /* WorldVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093A9C662B76572D0048A831 /* WorldVM.swift */; };
+		093A9C6B2B7658CE0048A831 /* MainViewWRD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093A9C6A2B7658CE0048A831 /* MainViewWRD.swift */; };
+		093A9C6D2B766EF00048A831 /* ImageViewWRD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093A9C6C2B766EF00048A831 /* ImageViewWRD.swift */; };
+		093A9C6F2B79644C0048A831 /* LibraryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093A9C6E2B79644C0048A831 /* LibraryModel.swift */; };
+		093A9C712B7964AC0048A831 /* LibraryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093A9C702B7964AC0048A831 /* LibraryVM.swift */; };
+		093A9C782B796BB70048A831 /* MainViewIMG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093A9C772B796BB70048A831 /* MainViewIMG.swift */; };
 		09DF2AC02B70154B0051E21F /* DailyCosmosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF2ABF2B70154B0051E21F /* DailyCosmosApp.swift */; };
 		09DF2AC22B70154B0051E21F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF2AC12B70154B0051E21F /* ContentView.swift */; };
 		09DF2AC42B70154C0051E21F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09DF2AC32B70154C0051E21F /* Assets.xcassets */; };
@@ -21,6 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		093A9C642B7656D30048A831 /* WorldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldModel.swift; sourceTree = "<group>"; };
+		093A9C662B76572D0048A831 /* WorldVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldVM.swift; sourceTree = "<group>"; };
+		093A9C6A2B7658CE0048A831 /* MainViewWRD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewWRD.swift; sourceTree = "<group>"; };
+		093A9C6C2B766EF00048A831 /* ImageViewWRD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewWRD.swift; sourceTree = "<group>"; };
+		093A9C6E2B79644C0048A831 /* LibraryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryModel.swift; sourceTree = "<group>"; };
+		093A9C702B7964AC0048A831 /* LibraryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryVM.swift; sourceTree = "<group>"; };
+		093A9C772B796BB70048A831 /* MainViewIMG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewIMG.swift; sourceTree = "<group>"; };
 		09DF2ABC2B70154B0051E21F /* DailyCosmos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyCosmos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09DF2ABF2B70154B0051E21F /* DailyCosmosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCosmosApp.swift; sourceTree = "<group>"; };
 		09DF2AC12B70154B0051E21F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,6 +61,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		093A9C682B7658990048A831 /* APOD */ = {
+			isa = PBXGroup;
+			children = (
+				09DF2AD22B7017620051E21F /* BlankView.swift */,
+				09DF2AD42B701C5C0051E21F /* ImageViewAPD.swift */,
+				09DF2AD62B702F000051E21F /* MainViewAPD.swift */,
+			);
+			path = APOD;
+			sourceTree = "<group>";
+		};
+		093A9C692B7658AB0048A831 /* World */ = {
+			isa = PBXGroup;
+			children = (
+				093A9C6A2B7658CE0048A831 /* MainViewWRD.swift */,
+				093A9C6C2B766EF00048A831 /* ImageViewWRD.swift */,
+			);
+			path = World;
+			sourceTree = "<group>";
+		};
+		093A9C742B796B680048A831 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				093A9C772B796BB70048A831 /* MainViewIMG.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		09DF2AB32B70154B0051E21F = {
 			isa = PBXGroup;
 			children = (
@@ -89,10 +130,10 @@
 		09DF2ACD2B7016F80051E21F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				093A9C742B796B680048A831 /* Image */,
+				093A9C692B7658AB0048A831 /* World */,
+				093A9C682B7658990048A831 /* APOD */,
 				09DF2AC12B70154B0051E21F /* ContentView.swift */,
-				09DF2AD22B7017620051E21F /* BlankView.swift */,
-				09DF2AD42B701C5C0051E21F /* ImageViewAPD.swift */,
-				09DF2AD62B702F000051E21F /* MainViewAPD.swift */,
 				09DF2AE62B7186A70051E21F /* CustomTabBar.swift */,
 			);
 			path = View;
@@ -110,6 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				09DF2AE12B7174620051E21F /* APODModel.swift */,
+				093A9C642B7656D30048A831 /* WorldModel.swift */,
+				093A9C6E2B79644C0048A831 /* LibraryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				09DF2AE42B7174D40051E21F /* APODVM.swift */,
+				093A9C662B76572D0048A831 /* WorldVM.swift */,
+				093A9C702B7964AC0048A831 /* LibraryVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -138,6 +183,8 @@
 			dependencies = (
 			);
 			name = DailyCosmos;
+			packageProductDependencies = (
+			);
 			productName = DailyCosmos;
 			productReference = 09DF2ABC2B70154B0051E21F /* DailyCosmos.app */;
 			productType = "com.apple.product-type.application";
@@ -166,6 +213,8 @@
 				Base,
 			);
 			mainGroup = 09DF2AB32B70154B0051E21F;
+			packageReferences = (
+			);
 			productRefGroup = 09DF2ABD2B70154B0051E21F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -193,14 +242,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				09DF2AC22B70154B0051E21F /* ContentView.swift in Sources */,
+				093A9C6F2B79644C0048A831 /* LibraryModel.swift in Sources */,
 				09DF2AD32B7017620051E21F /* BlankView.swift in Sources */,
+				093A9C672B76572D0048A831 /* WorldVM.swift in Sources */,
 				09DF2AD52B701C5C0051E21F /* ImageViewAPD.swift in Sources */,
 				09DF2AC02B70154B0051E21F /* DailyCosmosApp.swift in Sources */,
+				093A9C6B2B7658CE0048A831 /* MainViewWRD.swift in Sources */,
+				093A9C652B7656D30048A831 /* WorldModel.swift in Sources */,
 				09DF2AE52B7174D40051E21F /* APODVM.swift in Sources */,
+				093A9C782B796BB70048A831 /* MainViewIMG.swift in Sources */,
+				093A9C712B7964AC0048A831 /* LibraryVM.swift in Sources */,
 				09DF2AD02B7017300051E21F /* Constant.swift in Sources */,
 				09DF2AE72B7186A70051E21F /* CustomTabBar.swift in Sources */,
 				09DF2AE22B7174620051E21F /* APODModel.swift in Sources */,
 				09DF2AD72B702F000051E21F /* MainViewAPD.swift in Sources */,
+				093A9C6D2B766EF00048A831 /* ImageViewWRD.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

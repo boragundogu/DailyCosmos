@@ -27,13 +27,15 @@ struct MainViewAPD: View {
                                 .foregroundStyle(.white)
                                 .fontDesign(.monospaced)
                                 .font(.system(size: 16))
-                        ScrollView {
+                        ScrollView(showsIndicators: false) {
                             Text(apodVM.apod?.explanation ?? "explanation")
                                 .padding(25)
                                 .lineSpacing(6)
                                 .foregroundStyle(.white)
                                 .font(.system(size: 17, weight: .regular, design: .default))
                                 .shadow(color: Color.purple.opacity(0.8), radius: 3, x: 160, y: 110)
+                               // .frame(width: 400, height: 250, alignment: .center)
+                                .multilineTextAlignment(.leading)
                         }
                         .padding(.top, 5)
                     }

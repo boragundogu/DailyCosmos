@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var activeTab: Tab = .apod
+    @State var isShowTabView = true
     
     init() {
       UITabBar.appearance().isHidden = true // custom TabBar görünümünü gizlemek için.
@@ -19,12 +20,17 @@ struct ContentView: View {
         ZStack {
             Color("tabBar-color")
             VStack {
-                TabView(selection: $activeTab) {
-                    MainViewAPD()
-                        .tag(Tab.apod)
-                    MainViewWRD()
-                        .tag(Tab.mars)
+                if isShowTabView {
+                    TabView(selection: $activeTab) {
+                        MainViewAPD()
+                            .tag(Tab.apod)
+                        MainViewWRD()
+                            .tag(Tab.mars)
+                        MainViewIMG()
+                            .tag(Tab.images)
+                    }
                 }
+                
             }
             
             VStack {

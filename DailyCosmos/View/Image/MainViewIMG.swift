@@ -6,11 +6,32 @@
 //
 
 import SwiftUI
+import MasonryStack
 
 struct MainViewIMG: View {
+    
+    @StateObject private var libraryVM = LibraryVM()
+    @State private var searchText = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack {
+            TextField("Search Image", text: $searchText) {
+                libraryVM.getLibraryImages(query: searchText)
+            }.textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            
+            List(libraryVM.libraryImage) { image in
+                VStack {
+                    Text(image.title)
+                        .fontWeight(.bold)
+                    AsyncImage(url: URL(string: image.imageUrl))
+                        .aspectRatio(contentMode: .fit)
+                }
+            }
+        }
     }
+    
 }
 
 #Preview {
