@@ -14,6 +14,7 @@
 		093A9C6F2B79644C0048A831 /* LibraryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093A9C6E2B79644C0048A831 /* LibraryModel.swift */; };
 		093A9C712B7964AC0048A831 /* LibraryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093A9C702B7964AC0048A831 /* LibraryVM.swift */; };
 		093A9C782B796BB70048A831 /* MainViewIMG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093A9C772B796BB70048A831 /* MainViewIMG.swift */; };
+		09AD89382B7D2582006F6E65 /* SwiftUIMasonry in Frameworks */ = {isa = PBXBuildFile; productRef = 09AD89372B7D2582006F6E65 /* SwiftUIMasonry */; };
 		09DF2AC02B70154B0051E21F /* DailyCosmosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF2ABF2B70154B0051E21F /* DailyCosmosApp.swift */; };
 		09DF2AC22B70154B0051E21F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF2AC12B70154B0051E21F /* ContentView.swift */; };
 		09DF2AC42B70154C0051E21F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09DF2AC32B70154C0051E21F /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09AD89382B7D2582006F6E65 /* SwiftUIMasonry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +186,7 @@
 			);
 			name = DailyCosmos;
 			packageProductDependencies = (
+				09AD89372B7D2582006F6E65 /* SwiftUIMasonry */,
 			);
 			productName = DailyCosmos;
 			productReference = 09DF2ABC2B70154B0051E21F /* DailyCosmos.app */;
@@ -214,6 +217,7 @@
 			);
 			mainGroup = 09DF2AB32B70154B0051E21F;
 			packageReferences = (
+				09AD89362B7D2582006F6E65 /* XCRemoteSwiftPackageReference "SwiftUIMasonry" */,
 			);
 			productRefGroup = 09DF2ABD2B70154B0051E21F /* Products */;
 			projectDirPath = "";
@@ -462,6 +466,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		09AD89362B7D2582006F6E65 /* XCRemoteSwiftPackageReference "SwiftUIMasonry" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ciaranrobrien/SwiftUIMasonry.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		09AD89372B7D2582006F6E65 /* SwiftUIMasonry */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 09AD89362B7D2582006F6E65 /* XCRemoteSwiftPackageReference "SwiftUIMasonry" */;
+			productName = SwiftUIMasonry;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 09DF2AB42B70154B0051E21F /* Project object */;
 }
