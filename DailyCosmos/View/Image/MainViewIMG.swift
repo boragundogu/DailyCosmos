@@ -29,7 +29,7 @@ struct MainViewIMG: View {
                                         .aspectRatio(contentMode: .fit)
                                         .clipped()
                                         .cornerRadius(10)
-                                        .shadow(radius: 5)
+                                        .shadow(color: .gray, radius: 5)
                                 case .failure:
                                     Text("Failed to load image")
                                 @unknown default:

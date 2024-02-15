@@ -34,7 +34,6 @@ struct MainViewAPD: View {
                                 .foregroundStyle(.white)
                                 .font(.system(size: 17, weight: .regular, design: .default))
                                 .shadow(color: Color.purple.opacity(0.8), radius: 3, x: 160, y: 110)
-                               // .frame(width: 400, height: 250, alignment: .center)
                                 .multilineTextAlignment(.leading)
                         }
                         .padding(.top, 5)
