@@ -25,7 +25,7 @@ class LibraryVM: ObservableObject {
                 let imageResult = try JSONDecoder().decode(LibraryModel.self, from: data)
                 DispatchQueue.main.async {
                     self.libraryImage = imageResult.collection.items.map { item in
-                        guard let imageUrl = item.links.first(where: {$0.rel == "preview"})?.href else {
+                        guard let imageUrl = item.links.first?.href else {
                             return nil
                         }
                         let title = item.data.first?.title ?? "Title"

@@ -15,7 +15,7 @@ class WorldVM: ObservableObject {
     func fetchWorldData(){
         
         let calendar = Calendar.current
-        guard let date = calendar.date(byAdding: .day, value: -3, to: Date()) else {
+        guard let date = calendar.date(byAdding: .day, value: -2, to: Date()) else {
             return
         }
 
