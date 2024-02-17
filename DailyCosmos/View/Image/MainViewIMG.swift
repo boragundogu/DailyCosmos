@@ -12,44 +12,100 @@ struct MainViewIMG: View {
     
     @StateObject private var libraryVM = LibraryVM()
     @State private var searchText = ""
-    let gridItemLayout = [GridItem(.adaptive(minimum: 150))]
+    
+    @State private var scrollViewOffset: CGFloat = 0
+    @State private var startOffset: CGFloat = 0
+    @State private var isScrollToTop = false
     
     var body: some View {
-        NavigationView {
-            ScrollView(.vertical, showsIndicators: false) {
-                VMasonry(columns: 2, spacing: 10) {
-                    ForEach(libraryVM.libraryImage) { image in
-                            AsyncImage(url: URL(string: image.imageUrl)) { img in
-                                switch img {
-                                case .empty:
-                                    ProgressView()
-                                case .success(let image):
-                                    image
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .clipped()
-                                        .cornerRadius(10)
-                                        .shadow(color: .gray, radius: 5)
-                                case .failure:
-                                    Text("Failed to load image")
-                                @unknown default:
-                                    EmptyView()
+        NavigationStack {
+            ScrollViewReader{ proxyReader in
+                ScrollView(.vertical, showsIndicators: false) {
+                            VMasonry(columns: 2, spacing: 10) {
+                                ForEach(libraryVM.libraryImage) { image in
+                                    AsyncImage(url: URL(string: image.imageUrl)) { img in
+                                        switch img {
+                                        case .empty:
+                                            ProgressView()
+                                        case .success(let image):
+                                            image
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .clipped()
+                                                .cornerRadius(10)
+                                                .shadow(color: .gray, radius: 5)
+                                        case .failure:
+                                            Text("Failed to load image")
+                                        @unknown default:
+                                            EmptyView()
+                                        }
+                                    }
+                                    .padding(5)
                                 }
+                                
                             }
-                        .padding(5)
+                            .id("GO_TO_TOP")
+                            .overlay(
+                                GeometryReader{ proxy -> Color in
+                                    DispatchQueue.main.async{
+                                        if startOffset == 0 {
+                                            self.startOffset = proxy.frame(in: .global).minY
+                                        }
+                                        let offset = proxy.frame(in: .global).minY
+                                        self.scrollViewOffset = offset - startOffset
+                                    }
+                                    return Color.clear
+                                }
+                                    .frame(width: 0, height: 0, alignment: .top)
+                            )
+                }
+                .overlay(
+                    Button(action: {
+                        withAnimation(Animation.linear(duration: 0.3)) {
+                            isScrollToTop = true
+                            proxyReader.scrollTo("GO_TO_TOP", anchor: .top)
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            isScrollToTop = false
+                        }
+                    }, label: {
+                        Image(systemName: "arrow.up")
+                            .font(.system(size: 20, weight: .semibold))
+                            .foregroundStyle(.white)
+                            .padding()
+                            .background(Color.red)
+                            .clipShape(Circle())
+                            .shadow(color: Color.black.opacity(0.09), radius: 5, x: 5, y: 5)
+                    })
+                    .buttonStyle(BorderlessButtonStyle())
+                    .padding(.trailing)
+                    .padding(.bottom,getSafeArea().bottom == 0 ? 12 : 0)
+                    .padding(.bottom, 100)
+                    .opacity(-scrollViewOffset > 150 ? 1 : 0)
+                    .animation(.easeInOut)
+                    .disabled(isScrollToTop)
+                    ,alignment: .bottomTrailing
+              
+                )
+                .padding()
+                .onAppear{
+                    libraryVM.getLibraryImages(query: "")
+                }
+                .background(backgroundGradient.ignoresSafeArea(.all))
+                .toolbar {
+                    ToolbarItem(placement: .navigation) {
+                        TextField("Search", text: $searchText) { _ in
+                            if searchText != "" {
+                                libraryVM.getLibraryImages(query: searchText)
+                            }
+                        }
+                        .padding(.bottom, 15)
+                        .frame(width: 350, alignment: .center)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     }
                 }
+                .toolbarBackground(backgroundGradient.opacity(0.9))
             }
-            .background(backgroundGradient.ignoresSafeArea(.all))
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    TextField("Search", text: $searchText) { _ in
-                        libraryVM.getLibraryImages(query: searchText)
-                    }
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                }
-            }
-            .toolbarBackground(.hidden)
         }
         .onTapGesture {
             hideKeyboard()
@@ -57,8 +113,13 @@ struct MainViewIMG: View {
     }
 }
 
-
-    
-    #Preview {
-        MainViewIMG()
+extension View {
+    func getSafeArea() -> UIEdgeInsets {
+        return UIApplication.shared.windows.first?.safeAreaInsets ?? UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
+}
+
+
+#Preview {
+    MainViewIMG()
+}
