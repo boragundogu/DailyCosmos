@@ -13,10 +13,10 @@ struct ContentView: View {
     @State var isShowTabView = true
     
     init() {
-      UITabBar.appearance().isHidden = true // custom TabBar görünümünü gizlemek için.
+        UITabBar.appearance().isHidden = true // custom TabBar görünümünü gizlemek için.
     }
-    var body: some View {
     
+    var body: some View {
         ZStack {
             Color("tabBar-color")
             VStack {
@@ -30,19 +30,15 @@ struct ContentView: View {
                             .tag(Tab.images)
                     }
                 }
-                
             }
-            
             VStack {
                 Spacer()
                 CustomTabBar(selectedTab: $activeTab)
             }
         }
-        
+        .ignoresSafeArea(.keyboard, edges: .bottom)
     }
-
 }
-
 #Preview {
     ContentView()
 }

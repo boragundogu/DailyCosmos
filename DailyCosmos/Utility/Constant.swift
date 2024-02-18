@@ -16,6 +16,12 @@ extension MainViewIMG {
     }
 }
 
+extension View {
+    func getSafeArea() -> UIEdgeInsets {
+        return UIApplication.shared.windows.first?.safeAreaInsets ?? UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+}
+
 
 //MARK: - UI
 
@@ -25,4 +31,8 @@ var backgroundGradient: LinearGradient {
 
 var worldBackgroundGradient: LinearGradient {
     return LinearGradient(gradient: Gradient(colors: [Color("world-bg-color"), Color.black, Color.black, Color("world-bg-color")]), startPoint: .topLeading, endPoint: .bottomTrailing)
+}
+
+var textFieldGradient: LinearGradient {
+    return LinearGradient(gradient: Gradient(colors: [Color("bg-color-secondary"), Color("tf-gray"), Color("bg-color-secondary")]), startPoint: .topLeading, endPoint: .bottomTrailing)
 }
