@@ -96,32 +96,39 @@ struct MainViewIMG: View {
                 .toolbar {
                     ToolbarItem(placement: .navigation) {
                             HStack {
-                                TextField("Explore Nasa Image Library", text: $searchText) {
-                                    if searchText != "" {
-                                        libraryVM.getLibraryImages(query: searchText)
+                                    TextField("", text: $searchText) {
+                                        if searchText != "" {
+                                            libraryVM.getLibraryImages(query: searchText)
+                                        }
                                     }
-                                }
-                                .onTapGesture {
-                                    isHidePlaceholder.toggle()
-                                }
-                                .textFieldStyle(CustomTextField())
-                                .frame(width: 350, height: 100, alignment: .center)
-                                .foregroundStyle(.white)
-                                Button {
-                                    searchText = ""
-                                    isHidePlaceholder = true
-                                } label: {
-                                    if searchText != "" {
-                                        Image(systemName: "x.circle.fill")
-                                            .foregroundStyle(.black.opacity(0.5))
-                                            .scaleEffect(0.85)
+                                    .modifier(PlaceholderStyle(showPlaceHolder: searchText.isEmpty, placeholder: "Search Nasa Image Library"))
+                                    .foregroundStyle(.white)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 12)
+                                            .fill(textFieldGradient)
+                                            .shadow(color: .gray, radius: 15)
+                                            
+                                    )
+                                    .onTapGesture {
+                                        isHidePlaceholder.toggle()
                                     }
+                                    .textFieldStyle(CustomTextField())
+                                    .frame(width: 350, height: 100, alignment: .center)
+                                    Button {
+                                        searchText = ""
+                                        isHidePlaceholder = true
+                                    } label: {
+                                        if searchText != "" {
+                                            Image(systemName: "x.circle.fill")
+                                                .foregroundStyle(.white.opacity(0.5))
+                                                .scaleEffect(0.75)
+                                        }
+                                    }
+                                    .padding(.leading, -50)
                                 }
-                                .padding(.leading, -50)
-                            }
-                            .padding(.top, 20)
-                            .padding(.leading, 10)
-                        .padding(.bottom, 15)
+                                .padding(.top, 20)
+                                .padding(.leading, 10)
+                                .padding(.bottom, 15)
                     }
                 }
                 .toolbarBackground(backgroundGradient.opacity(0.9))
@@ -139,9 +146,24 @@ struct CustomTextField: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
             .padding(10)
-            .background(textFieldGradient.ignoresSafeArea())
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-            .shadow(color: .gray, radius: 10)
+    }
+}
+
+struct PlaceholderStyle: ViewModifier {
+    var showPlaceHolder: Bool
+    var placeholder: String
+
+    public func body(content: Content) -> some View {
+        ZStack(alignment: .leading) {
+            if showPlaceHolder {
+                Text(placeholder)
+                .padding(.horizontal, 15)
+                .opacity(0.6)
+            }
+            content
+            .foregroundColor(Color.white)
+            .padding(5.0)
+        }
     }
 }
 
