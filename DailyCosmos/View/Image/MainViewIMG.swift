@@ -133,6 +133,7 @@ struct MainViewIMG: View {
                 }
                 .toolbarBackground(backgroundGradient.opacity(0.9))
             }
+            .ignoresSafeArea(.keyboard, edges: .bottom)
         }
         .onTapGesture {
             hideKeyboard()
