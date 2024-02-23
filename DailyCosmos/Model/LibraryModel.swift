@@ -23,6 +23,7 @@ struct LibraryModel: Codable {
     
     struct Data: Codable {
         let title: String
+        let description: String
     }
     
     struct Link: Codable {

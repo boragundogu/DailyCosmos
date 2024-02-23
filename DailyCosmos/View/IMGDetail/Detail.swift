@@ -8,11 +8,38 @@
 import SwiftUI
 
 struct Detail: View {
+    
+    let image: ImageModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack {
+                Text(image.title)
+                    .padding()
+                AsyncImage(url: URL(string: image.imageUrl)) { image in
+                    switch image {
+                    case .empty:
+                        ProgressView()
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .shadow(color: .gray, radius: 15)
+                            .frame(width: 350, height: 150, alignment: .center)
+                    case .failure:
+                        Text("Error to load images")
+                    @unknown default:
+                        EmptyView()
+                    }
+                }
+
+            }
+        }
     }
 }
 
 #Preview {
-    Detail()
+    Detail(image: .init(title: "Bora", imageUrl: "https://images-assets.nasa.gov/image/PIA18906/PIA18906~thumb.jpg"))
+        .background(Color.gray)
 }
