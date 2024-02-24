@@ -36,4 +36,5 @@ struct ImageModel: Identifiable {
     let id = UUID()
     let title: String
     let imageUrl: String
+    let description: String
 }

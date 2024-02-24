@@ -12,18 +12,15 @@ enum Tab: String, CaseIterable {
     case apod = "Home"
     case mars = "Mars"
     case images = "Images"
-    case feedback = "Feedback"
     
     var systemImage: String {
         switch self {
         case .apod:
             return "house"
         case .mars:
-            return "moon.circle"
+            return "globe.europe.africa"
         case .images:
-            return "photo.artframe"
-        case .feedback:
-            return "info.circle.fill"
+            return "photo.stack"
         }
     }
 }

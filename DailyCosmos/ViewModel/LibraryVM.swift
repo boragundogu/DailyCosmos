@@ -29,7 +29,8 @@ class LibraryVM: ObservableObject {
                             return nil
                         }
                         let title = item.data.first?.title ?? "Title"
-                        return ImageModel(title: title, imageUrl: imageUrl)
+                        let description = item.data.first?.description ?? "Description"
+                        return ImageModel(title: title, imageUrl: imageUrl, description: description)
                     }.compactMap{ $0 }
                 }
             } catch {

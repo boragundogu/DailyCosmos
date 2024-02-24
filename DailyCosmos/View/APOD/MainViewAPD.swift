@@ -22,7 +22,7 @@ struct MainViewAPD: View {
                             .padding(.top, 15)
                             .font(.system(size: 16))
                         ImageViewAPD()
-                            .padding(.bottom, -50)
+                            //.padding(.bottom, -50)
                         Text(apodVM.apod?.date ?? "01-01-0001")
                                 .foregroundStyle(.white)
                                 .fontDesign(.monospaced)

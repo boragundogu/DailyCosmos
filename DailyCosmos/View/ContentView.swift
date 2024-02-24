@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var activeTab: Tab = .apod
+    @StateObject private var libraryVM = LibraryVM()
     @State  var isShowTabView = true
     
     init() {
