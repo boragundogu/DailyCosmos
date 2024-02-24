@@ -16,4 +16,5 @@ https://github.com/boragundogu/DailyCosmos/assets/82386626/3e6aac75-f247-4316-a3
 
 
 
-[DailyCosmos banner.pdf](https://github.com/boragundogu/DailyCosmos/files/14392921/DailyCosmos.banner.pdf)
+![DailyCosmos Banner](https://github.com/boragundogu/DailyCosmos/assets/82386626/ea006134-7039-4eaf-91a6-0bc1d353c0d8)
+
